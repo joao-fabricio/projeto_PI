@@ -1,0 +1,29 @@
+data/ 
+responsável pelos dados do app: 
+    -API
+    -armazenamento local
+    -banco
+    -cache
+    -etc
+
+http/
+    -configurações de requisições http
+    -endpoints da API
+    -tratamento de exceções
+
+local/
+    -armazenamento local
+    -SharedPreferences, SQlite, Hive etc
+
+pages/
+    -telas do aplicativo    
+
+widgets/
+    -componentes reutilizáveis
+    -campos customizados, botões, cards etc
+
+main.dart
+    -ponto incial do app (runApp())
+
+app_widget.dart
+    -geralmente configura MaterialApp, rotas, temas e estruturas principais
