@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projetopi/pages/home.dart';
 import 'package:flutter_projetopi/pages/login.dart';
-import 'package:flutter_projetopi/pages/splash_screen.dart';
+import 'package:flutter_projetopi/pages/logo.dart';
+import 'package:flutter_projetopi/pages/carregando.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -12,9 +14,11 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(),
+        '/': (context) => Logo(),
+        '/carregando': (context) => Carregando(),
         '/login': (context) => Login(),
-      }
+        '/home': (context) => Home(),
+      },
     );
   }
 }

@@ -36,7 +36,6 @@ abstract interface class IHttpClient {
 
 //aqui implementa interface, escreve a lógica real
 class DioClient implements IHttpClient {
-
   //recebe instância do Dio
   final Dio client;
 
@@ -49,50 +48,53 @@ class DioClient implements IHttpClient {
 
   @override
   Future post({
-    required url, 
+    required url,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? data,
   }) async {
     return await client.post(
-      url, data: data, 
+      url,
+      data: data,
       options: Options(headers: headers),
     );
   }
 
   @override
   Future delete({
-    required url, 
+    required url,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? data,
   }) async {
     return await client.delete(
-      url, data: data, 
+      url,
+      data: data,
       options: Options(headers: headers),
     );
   }
 
   @override
   Future patch({
-    required url, 
+    required url,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? data,
   }) async {
     return await client.patch(
-      url, data: data, 
+      url,
+      data: data,
       options: Options(headers: headers),
     );
   }
 
   @override
   Future put({
-    required url, 
+    required url,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? data,
   }) async {
     return await client.put(
-      url, data: data, 
+      url,
+      data: data,
       options: Options(headers: headers),
     );
   }
-  
 }
