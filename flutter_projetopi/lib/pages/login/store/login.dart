@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projetopi/data/http/http_client.dart';
+import 'package:flutter_projetopi/data/repositories/user_repository.dart';
 import 'package:flutter_projetopi/pages/carregando.dart';
+import 'package:flutter_projetopi/pages/home.dart';
+import 'package:flutter_projetopi/pages/login/store/user_store.dart';
 import 'package:flutter_projetopi/widgets/custom_edit.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,8 +16,18 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  final _formKey = GlobalKey<FormState>();
+  final controllerEmail = TextEditingController();
+  final controllerSenha = TextEditingController();
+  bool clicou = false;
+
   @override
   Widget build(BuildContext context) {
+
+    final dioClient = Provider.of<DioClient>(context);
+    UserStore store = UserStore(repository: UserRepository(client: dioClient));
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -73,6 +88,13 @@ class _LoginState extends State<Login> {
                           builder: (context) => const Carregando(),
                         ),
                       );
+
+                      Future.delayed(const Duration(seconds: 2), () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()),
+                        );
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
